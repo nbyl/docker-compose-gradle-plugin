@@ -1,11 +1,9 @@
 package com.github.nbyl.gradle.dockercompose.samples;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "BOOKS")
 public class Book {
 
     @Id
@@ -13,8 +11,6 @@ public class Book {
     private Long id;
 
     private String title;
-
-    private Integer releaseYear;
 
     public Long getId() {
         return id;
@@ -30,13 +26,5 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(Integer releaseYear) {
-        this.releaseYear = releaseYear;
     }
 }
