@@ -7,6 +7,10 @@ class DockerComposeBuild extends DefaultTask {
 
     @TaskAction
     def run() {
-        println 'Hello World: Build!'
+        def commandLineArgs = ['docker-compose', 'build']
+
+        project.exec {
+            commandLine commandLineArgs
+        }
     }
 }
