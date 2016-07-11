@@ -1,0 +1,21 @@
+plugins {
+    id 'groovy'
+    id 'com.palantir.git-version' version '0.5.2'
+}
+
+apply from: "$rootDir/gradle/publishing.gradle"
+
+version gitVersion()
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "${gradleVersion}"
+}
