@@ -6,11 +6,13 @@ import org.gradle.api.tasks.TaskAction
 
 class DockerComposeBuild extends DefaultTask {
 
+    def DockerComposeRunner runner = new DockerComposeRunner()
+
     @TaskAction
     def run() {
-        new DockerComposeRunner(project: project,
-                command: 'build')
+        runner
+                .withProject(project)
+                .withCommand('build')
                 .run()
-
     }
 }

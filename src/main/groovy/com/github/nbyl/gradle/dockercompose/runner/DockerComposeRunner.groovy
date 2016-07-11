@@ -8,6 +8,14 @@ class DockerComposeRunner {
 
     def String command
 
+    def withProject(Project project) {
+        this.project = project
+    }
+
+    def withCommand(String command) {
+        this.command = command
+    }
+
     def run() {
         def commandLineArgs = ['docker-compose', command]
 
