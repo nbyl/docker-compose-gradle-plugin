@@ -12,7 +12,7 @@ cache:
   - "$HOME/.gradle/wrapper/"
 deploy:
 - provider: script
-  script: "./gradlew deploy"
+  script: "./gradlew check"
   on:
     branch: master
 - provider: script
