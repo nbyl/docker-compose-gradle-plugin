@@ -1,7 +1,7 @@
-package com.github.nbyl.gradle.dockercompose;
+package com.github.nbyl.gradle.dockercompose
 
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
+import org.gradle.api.Plugin
+import org.gradle.api.Project
 
 class DockerComposePlugin implements Plugin<Project> {
     @Override
