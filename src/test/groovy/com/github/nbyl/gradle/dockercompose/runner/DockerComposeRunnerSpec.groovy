@@ -46,4 +46,25 @@ public class DockerComposeRunnerSpec extends Specification {
         }
         1 * execCall.commandLine(['docker-compose', 'up', '-d'])
     }
+
+    def "compose file is passed to the command line"() {
+        given:
+        def project = Mock(Project)
+        def execCall = Mock(ExecSpec)
+
+        when:
+        new DockerComposeRunner()
+                .withProject(project)
+                .withComposeFile('redis.yml')
+                .withCommand('up')
+                .run()
+
+        then:
+        1 * project.exec(_) >> { Closure closure ->
+            closure.delegate = execCall
+            closure.resolveStrategy = Closure.DELEGATE_FIRST
+            closure.call(execCall)
+        }
+        1 * execCall.commandLine(['docker-compose', '-f', 'redis.yml', 'up'])
+    }
 }

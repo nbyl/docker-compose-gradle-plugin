@@ -33,7 +33,14 @@ class DockerComposeRunner {
     }
 
     def run() {
-        def commandLineArgs = ['docker-compose', command]
+        def commandLineArgs = ['docker-compose']
+
+        if (composeFile) {
+            commandLineArgs << '-f'
+            commandLineArgs << composeFile
+        }
+
+        commandLineArgs << command
 
         if (arguments) {
             commandLineArgs = commandLineArgs + arguments
