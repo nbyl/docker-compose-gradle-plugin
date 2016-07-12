@@ -6,8 +6,7 @@ class DockerComposeBuild extends DockerComposeBaseTask {
 
     @TaskAction
     def run() {
-        runner
-                .withProject(project)
+        getRunner()
                 .withCommand('build')
                 .run()
     }

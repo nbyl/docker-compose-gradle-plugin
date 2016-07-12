@@ -14,8 +14,7 @@ class DockerComposeUp extends DockerComposeBaseTask {
             arguments << '-d'
         }
 
-        runner
-                .withProject(project)
+        getRunner()
                 .withCommand('up')
                 .withArguments(arguments)
                 .run()
