@@ -12,7 +12,10 @@ public class DockerComposeRunnerSpec extends Specification {
         def execCall = Mock(ExecSpec)
 
         when:
-        new DockerComposeRunner(project: project, command: 'up').run()
+        new DockerComposeRunner()
+                .withProject(project)
+                .withCommand('up')
+                .run()
 
         then:
         1 * project.exec(_) >> { Closure closure ->
@@ -21,5 +24,26 @@ public class DockerComposeRunnerSpec extends Specification {
             closure.call(execCall)
         }
         1 * execCall.commandLine(['docker-compose', 'up'])
+    }
+
+    def "adding arguments passes these to the final command"() {
+        given:
+        def project = Mock(Project)
+        def execCall = Mock(ExecSpec)
+
+        when:
+        new DockerComposeRunner()
+                .withProject(project)
+                .withCommand('up')
+                .withArguments(['-d'])
+                .run()
+
+        then:
+        1 * project.exec(_) >> { Closure closure ->
+            closure.delegate = execCall
+            closure.resolveStrategy = Closure.DELEGATE_FIRST
+            closure.call(execCall)
+        }
+        1 * execCall.commandLine(['docker-compose', 'up', '-d'])
     }
 }

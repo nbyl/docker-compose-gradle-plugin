@@ -41,6 +41,6 @@ import com.github.nbyl.gradle.dockercompose.tasks.*
 task buildImages(type: DockerComposeBuild) {
 }
 
-task run() {
+task run(type: DockerComposeUp) {
     dependsOn buildImages
 }
