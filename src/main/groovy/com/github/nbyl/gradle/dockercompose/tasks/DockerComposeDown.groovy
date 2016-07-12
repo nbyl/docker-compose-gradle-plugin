@@ -6,8 +6,7 @@ class DockerComposeDown extends DockerComposeBaseTask {
 
     @TaskAction
     def run() {
-        runner
-                .withProject(project)
+        getRunner()
                 .withCommand('down')
                 .run()
     }

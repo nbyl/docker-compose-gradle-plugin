@@ -8,6 +8,8 @@ class DockerComposeRunner {
 
     def String command
 
+    def String composeFile
+
     def arguments
 
     def withProject(Project project) {
@@ -20,13 +22,25 @@ class DockerComposeRunner {
         return this
     }
 
+    def withComposeFile(String composeFile) {
+        this.composeFile = composeFile
+        return this
+    }
+
     def withArguments(arguments) {
         this.arguments = arguments
         return this
     }
 
     def run() {
-        def commandLineArgs = ['docker-compose', command]
+        def commandLineArgs = ['docker-compose']
+
+        if (composeFile) {
+            commandLineArgs << '-f'
+            commandLineArgs << composeFile
+        }
+
+        commandLineArgs << command
 
         if (arguments) {
             commandLineArgs = commandLineArgs + arguments

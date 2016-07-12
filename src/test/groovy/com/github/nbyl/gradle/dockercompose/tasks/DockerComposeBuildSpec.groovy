@@ -20,4 +20,23 @@ class DockerComposeBuildSpec extends BaseSpecification {
         1 * runner.withCommand('build') >> runner
         1 * runner.run()
     }
+
+    def "setting compose file will pass it to the runner"() {
+        given:
+        def task = project.task(type: DockerComposeBuild, "buildImages", {
+            composeFile 'redis.yml'
+        })
+        def runner = Mock(DockerComposeRunner)
+
+        when:
+        task.runner = runner
+        task.run()
+
+        then:
+        task instanceof DockerComposeBuild
+        1 * runner.withProject(_) >> runner
+        1 * runner.withComposeFile('redis.yml') >> runner
+        1 * runner.withCommand('build') >> runner
+        1 * runner.run()
+    }
 }
