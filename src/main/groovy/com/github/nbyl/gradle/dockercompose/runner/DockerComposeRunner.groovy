@@ -10,10 +10,12 @@ class DockerComposeRunner {
 
     def withProject(Project project) {
         this.project = project
+        return this
     }
 
     def withCommand(String command) {
         this.command = command
+        return this
     }
 
     def run() {

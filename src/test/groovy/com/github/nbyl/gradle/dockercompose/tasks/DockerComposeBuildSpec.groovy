@@ -1,13 +1,13 @@
 package com.github.nbyl.gradle.dockercompose.tasks
 
 import com.github.nbyl.gradle.dockercompose.runner.DockerComposeRunner
-import spock.lang.Specification
 
-class DockerComposeBuildSpec extends Specification {
+class DockerComposeBuildSpec extends BaseSpecification {
 
     def "class DockerComposeRunner with build command"() {
         given:
-        def task = new DockerComposeBuild()
+        def task = project.task(type: DockerComposeBuild, "buildImages", {
+        })
         def runner = Mock(DockerComposeRunner)
 
         when:
@@ -15,8 +15,9 @@ class DockerComposeBuildSpec extends Specification {
         task.run()
 
         then:
-        1 * runner.withProject(_)
-        1 * runner.withCommand('build')
+        task instanceof DockerComposeBuild
+        1 * runner.withProject(_) >> runner
+        1 * runner.withCommand('build') >> runner
         1 * runner.run()
     }
 }
