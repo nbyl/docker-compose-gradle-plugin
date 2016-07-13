@@ -12,6 +12,8 @@ class DockerComposeRunner {
 
     def arguments
 
+    def environmentVariables
+
     def withProject(Project project) {
         this.project = project
         return this
@@ -32,6 +34,11 @@ class DockerComposeRunner {
         return this
     }
 
+    def withEnvironmentVariables(environmentVariables) {
+        this.environmentVariables = environmentVariables
+        return this
+    }
+
     def run() {
         def commandLineArgs = ['docker-compose']
 
@@ -40,14 +47,25 @@ class DockerComposeRunner {
             commandLineArgs << composeFile
         }
 
+        if (System.properties['docker.compose.verbose']) {
+            commandLineArgs << '--verbose'
+        }
+
         commandLineArgs << command
 
         if (arguments) {
             commandLineArgs = commandLineArgs + arguments
         }
 
-        project.exec {
-            commandLine commandLineArgs
+        if (environmentVariables) {
+            project.exec {
+                commandLine commandLineArgs
+                environment environmentVariables
+            }
+        } else {
+            project.exec {
+                commandLine commandLineArgs
+            }
         }
     }
 }

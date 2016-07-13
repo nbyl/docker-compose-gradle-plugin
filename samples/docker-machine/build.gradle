@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:+")
+    }
+}
+
+apply plugin: 'com.github.nbyl.docker-compose'
+
+import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
+import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+
+task start(type: DockerComposeUp) {
+    dockerMachineEnvironment 'dev'
+}
+
+task stop(type: DockerComposeDown) {
+    dockerMachineEnvironment 'dev'
+}

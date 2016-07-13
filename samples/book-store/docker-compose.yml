@@ -13,7 +13,7 @@ services:
 #    depends_on:
 #      - database
 #    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://database/bookstore
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://database/bookstore @Value("${spring.datasource.url}")
 #      - SPRING_DATASOURCE_USERNAME=books
 #      - SPRING_DATASOURCE_PASSWORD=books01
 #      - SPRING_DATASOURCE_DRIVER-CLASS=com.mysql.jdbc.Driver

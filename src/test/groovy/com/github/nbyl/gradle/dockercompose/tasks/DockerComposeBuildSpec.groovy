@@ -1,5 +1,6 @@
 package com.github.nbyl.gradle.dockercompose.tasks
 
+import com.github.nbyl.gradle.dockercompose.machine.DockerMachineEnvironmentReader
 import com.github.nbyl.gradle.dockercompose.runner.DockerComposeRunner
 
 class DockerComposeBuildSpec extends BaseSpecification {
@@ -36,6 +37,30 @@ class DockerComposeBuildSpec extends BaseSpecification {
         task instanceof DockerComposeBuild
         1 * runner.withProject(_) >> runner
         1 * runner.withComposeFile('redis.yml') >> runner
+        1 * runner.withCommand('build') >> runner
+        1 * runner.run()
+    }
+
+    def "setting dockerMachineEnvironment will pass it to the runner"() {
+        given:
+        def task = project.task(type: DockerComposeBuild, "buildImages", {
+            dockerMachineEnvironment 'dev'
+        })
+        def runner = Mock(DockerComposeRunner)
+        def environmentReader = Mock(DockerMachineEnvironmentReader)
+
+        when:
+        task.runner = runner
+        task.environmentReader = environmentReader
+        task.run()
+
+        then:
+        task instanceof DockerComposeBuild
+
+        1 * environmentReader.readEnvironment('dev') >> ['DOCKER_HOST': 'tcp://192.168.99.100:2376']
+
+        1 * runner.withProject(_) >> runner
+        1 * runner.withEnvironmentVariables(['DOCKER_HOST': 'tcp://192.168.99.100:2376']) >> runner
         1 * runner.withCommand('build') >> runner
         1 * runner.run()
     }
