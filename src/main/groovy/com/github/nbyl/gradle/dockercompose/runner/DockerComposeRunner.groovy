@@ -47,7 +47,9 @@ class DockerComposeRunner {
             commandLineArgs << composeFile
         }
 
-        commandLineArgs << '--verbose'
+        if (System.properties['docker.compose.verbose']) {
+            commandLineArgs << '--verbose'
+        }
 
         commandLineArgs << command
 
