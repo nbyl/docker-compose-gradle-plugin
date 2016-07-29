@@ -1,11 +1,14 @@
 plugins {
     id 'groovy'
     id 'com.palantir.git-version' version '0.5.2'
+    id 'org.ajoberstar.github-pages' version '1.5.1'
+
 }
 
-apply from: "$rootDir/gradle/publishing.gradle"
-
 version gitVersion()
+
+apply from: "$rootDir/gradle/documentation.gradle"
+apply from: "$rootDir/gradle/publishing.gradle"
 
 repositories {
     mavenCentral()

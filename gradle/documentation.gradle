@@ -1,0 +1,8 @@
+githubPages {
+    pages {
+        from "${project.rootDir}/docs"
+        into '_guides'
+        rename 'guide.markdown', "${project.version}.markdown"
+        expand 'version': project.version
+    }
+}
