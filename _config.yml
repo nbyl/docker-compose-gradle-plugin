@@ -10,8 +10,8 @@ title: docker-compose-gradle-plugin
 email: nico@nicolas-byl.eu
 description: > # this means to ignore newlines until "baseurl:"
   Gradle plugin for docker-compose.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://nbyl.github.io/docker-compose-gradle-plugin/" # the base hostname & protocol for your site
+baseurl: "/docker-compose-gradle-plugin" # the subpath of your site, e.g. /blog
+url: "http://nbyl.github.io/" # the base hostname & protocol for your site
 twitter_username: NicolasByl
 github_username:  nbyl
 
