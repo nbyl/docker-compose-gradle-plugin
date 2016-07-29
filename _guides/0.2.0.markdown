@@ -1,4 +1,72 @@
 ---
 version: 0.2.0
+layout: guide
 ---
-# User Guide - docker-compose-gradle-plugin
+## Introduction
+
+TBD
+
+## Usage
+
+### Plugin Activation
+
+To activate the plugin, insert the following code into your `build.gradle`:
+
+```
+buildscript {
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/nbyl/maven"
+        }
+    }
+
+    dependencies {
+        classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:0.2.0")
+    }
+}
+
+apply plugin: 'com.github.nbyl.docker-compose'
+```    
+Afterwards you can use the provided [tasks](#tasks) to activate `docker-compose`.
+
+### <a name="tasks"></a>Tasks
+
+#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeBuild
+
+This task calls the <a href="https://docs.docker.com/compose/reference/build/">build command</a> to build all missing containers.
+
+| Property | Default Value | Description |
+| --- | --- | ---: |
+| `composeFile` | | The location of the docker-compose file to use. If not set, it will use the default of docker-compose (`docker-compose.yml`). |
+| `dockerMachineEnvironment` | | The docker-machine environment to select. See [Docker Machine Support](#docker-machine-support) for furhter details.|
+
+#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
+
+This task calls the <a href="https://docs.docker.com/compose/reference/down/">build command</a> to remove all containers and networks.
+
+| Property | Default Value | Description |
+| --- | --- | ---: |
+| `composeFile` | | The location of the docker-compose file to use. If not set, it will use the default of docker-compose (`docker-compose.yml`). |
+| `dockerMachineEnvironment` | | The docker-machine environment to select. See [Docker Machine Support](#docker-machine-support) for furhter details.|
+
+#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+
+This task calls the <a href="https://docs.docker.com/compose/reference/up/">up command</a> to start all containers and networks.
+
+| Property | Default Value | Description |
+| --- | --- | ---: |
+| `composeFile` | | The location of the docker-compose file to use. If not set, it will use the default of docker-compose (`docker-compose.yml`). |
+| `dockerMachineEnvironment` | | The docker-machine environment to select. See [Docker Machine Support](#docker-machine-support) for furhter details.|
+
+### <a name="docker-machine-support"></a>Docker-Machine Support
+
+## Development
+
+* Repository
+* CI Build
+* Patches Welcome
+* Creating a release
+
+## License
+
+The plugin is provided under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
