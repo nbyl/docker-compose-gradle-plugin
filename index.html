@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {% assign latestGuide = site.guides | last %}
+
+  <p>
+    You might want to look at the user guide of the latest version: <a href="{{ latestGuide.url | prepend: site.baseurl }}">{{ latestGuide.version }}</a>
+  </p>
+</div>
