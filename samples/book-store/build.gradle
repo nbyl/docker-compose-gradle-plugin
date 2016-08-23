@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.6.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
         classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:+")
     }
 }
@@ -36,7 +37,13 @@ dependencies {
     runtime('mysql:mysql-connector-java')
 }
 
-import com.github.nbyl.gradle.dockercompose.tasks.*
+dockerCompose {
+    download = true
+}
+
+import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeBuild
+import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
+import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
 
 task buildImages(type: DockerComposeBuild) {
 }
