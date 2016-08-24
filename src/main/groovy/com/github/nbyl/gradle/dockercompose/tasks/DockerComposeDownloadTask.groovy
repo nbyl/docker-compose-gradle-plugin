@@ -45,10 +45,19 @@ public class DockerComposeDownloadTask extends AbstractTask {
     }
 
     String getKernelName() {
-        return 'Linux'
+        runUnameCommand('-s')
     }
 
     String getMachine() {
-        return 'x86_64'
+        runUnameCommand('-m')
+    }
+
+    String runUnameCommand(def parameter) {
+        def ByteArrayOutputStream stdout = new ByteArrayOutputStream()
+        this.project.exec {
+            commandLine 'uname', parameter
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
     }
 }

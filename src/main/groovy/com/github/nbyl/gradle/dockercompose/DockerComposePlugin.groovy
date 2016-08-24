@@ -16,7 +16,7 @@ class DockerComposePlugin implements Plugin<Project> {
     public void apply(Project project) {
         this.project = project
 
-        this.config = this.project.extensions.create('dockerCompose', DockerComposeExtension, this.project)
+        this.config = this.project.extensions.create(DockerComposeExtension.EXTENSION_NAME, DockerComposeExtension, this.project)
 
         this.downloadTask = project.tasks.create(DockerComposeDownloadTask.NAME, DockerComposeDownloadTask)
         project.afterEvaluate {
