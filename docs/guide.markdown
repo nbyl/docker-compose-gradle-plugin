@@ -9,7 +9,7 @@ This is a plugin for the popular [Gradle](https://gradle.org/) build tool. It en
 
 * Rich domain language to integration docker-compose into your build
 * Select docker environment using [docker-machine](https://docs.docker.com/machine)
-* Download docker-compose if not installed (Coming Soon)
+* Download docker-compose if not installed
 
 ## Usage
 
@@ -35,6 +35,8 @@ apply plugin: 'com.github.nbyl.docker-compose'
 Afterwards you can use the provided [tasks](#tasks) to activate `docker-compose`.
 
 ### Configuration
+
+#### Download of docker-compose 
 
 The plugin can optionally download docker-compose and use. Simple turn the download property on:
 ```
