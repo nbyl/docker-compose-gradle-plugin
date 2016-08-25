@@ -42,9 +42,7 @@ class DockerComposeRunner {
 
     def run() {
         def DockerComposeExtension extension = DockerComposeExtension.get(project)
-        def commandLineArgs = extension.download ?
-                [new File(this.project.buildDir, 'dockerCompose' + File.separator + 'docker-compose').absolutePath]
-                : ['docker-compose']
+        def commandLineArgs = [extension.binary]
 
         if (composeFile) {
             commandLineArgs << '-f'

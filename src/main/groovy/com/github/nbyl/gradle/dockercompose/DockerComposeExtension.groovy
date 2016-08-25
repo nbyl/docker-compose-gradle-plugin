@@ -8,7 +8,13 @@ class DockerComposeExtension {
 
     def boolean download = false
 
-    DockerComposeExtension(Project project) {}
+    def String binary = 'docker-compose'
+
+    DockerComposeExtension(Project project) {
+        if (download) {
+            binary = new File(this.project.buildDir, 'dockerCompose' + File.separator + 'docker-compose').absolutePath
+        }
+    }
 
     static DockerComposeExtension get(Project project) {
         project.extensions.getByName(EXTENSION_NAME)
