@@ -34,6 +34,15 @@ apply plugin: 'com.github.nbyl.docker-compose'
 ```
 Afterwards you can use the provided [tasks](#tasks) to activate `docker-compose`.
 
+### Configuration
+
+The plugin can optionally download docker-compose and use. Simple turn the download property on:
+```
+dockerCompose {
+    download = true
+}
+```
+
 ### <a name="tasks"></a>Tasks
 
 #### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeBuild
