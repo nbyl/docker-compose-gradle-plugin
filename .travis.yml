@@ -15,6 +15,7 @@ deploy:
   script: "./gradlew deploy"
   on:
     tags: true
+    all_branches: true
 env:
   global:
   - secure: eD7rsivVnY6nWWfTb2Al5Bwxfd70EkWrosv34rjZWJ+a2bGUahybGorUy9/FK1plVvGJAfpaJQL96Zvq6GyWV5Xet1KwZnELBUKhAlFCOHUXGyAPTw6+fxOBSNOliaWyHBMSyqN3lW2vULS3sHgkKqJwXED4oMGGB3HaL+OB72XdDpFdB8ZT3hSRmCE6BQGEuIobijmhXcjkT5iUOs0nMq+x0FSTCFEn77U40VuHSAY1/W0mmMfHqmQz/v7CJmoe7Q5Ff4g0ZfSOupAWPFwRvAa614cTIdnxWRJmnhPO0m9qCbjOFThbH0WJPNq+KPfYW3Bvg/esLPxVhp2mEpkURDoJAOQNIzJfknrz3f9rg/wK4yafs+H6YwqTg+jV2e2pHodbjrdlJ8VanHDkVVCJ9/1e6Qq9FqZR2OA5iJq7MyRAnYYRtVxTD7b6r3siffU30+M/vF4elJEQvBtUCJCKuo6dZGfWDYPxL0jaKOqzDi+J/jI/l1ZW9dRGWMQUPtybJsZ8lJ9IO/Q2qc7o71FNOQqMnXq/BBvwTR7wsAwCuYGrcxJIlkSSVoLdCGOI7vcnksdm90UDe0pBfcnEpNeTUCY+z1ZgXhh3rxkyS/7xES0bIKsxfAgfD732c/ZposVEPNRNTz1ZMTJDUnvuEu8WF+wDbtjnzoJwsOuKpv9ef1E=
