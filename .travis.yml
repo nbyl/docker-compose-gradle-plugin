@@ -12,9 +12,9 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 deploy:
-  skip_cleanup: true
 - provider: script
   script: "./gradlew deploy"
+  skip_cleanup: true
   on:
     tags: true
     all_branches: true
