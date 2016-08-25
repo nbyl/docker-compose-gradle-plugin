@@ -1,5 +1,6 @@
 package com.github.nbyl.gradle.dockercompose.runner
 
+import com.github.nbyl.gradle.dockercompose.DockerComposeExtension
 import org.gradle.api.Project
 
 class DockerComposeRunner {
@@ -40,7 +41,8 @@ class DockerComposeRunner {
     }
 
     def run() {
-        def commandLineArgs = ['docker-compose']
+        def DockerComposeExtension extension = DockerComposeExtension.get(project)
+        def commandLineArgs = [extension.binary]
 
         if (composeFile) {
             commandLineArgs << '-f'
