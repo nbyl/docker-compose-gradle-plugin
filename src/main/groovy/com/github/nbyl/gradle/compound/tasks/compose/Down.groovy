@@ -1,8 +1,8 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks.compose
 
 import org.gradle.api.tasks.TaskAction
 
-class DockerComposeDown extends DockerComposeBaseTask {
+class Down extends BaseTask {
 
     @TaskAction
     def run() {

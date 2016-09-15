@@ -1,10 +1,10 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks.compose
 
-import com.github.nbyl.gradle.dockercompose.machine.DockerMachineEnvironmentReader
-import com.github.nbyl.gradle.dockercompose.runner.DockerComposeRunner
+import com.github.nbyl.gradle.compound.machine.DockerMachineEnvironmentReader
+import com.github.nbyl.gradle.compound.runner.DockerComposeRunner
 import org.gradle.api.DefaultTask
 
-abstract class DockerComposeBaseTask extends DefaultTask {
+abstract class BaseTask extends DefaultTask {
 
     def String composeFile
 

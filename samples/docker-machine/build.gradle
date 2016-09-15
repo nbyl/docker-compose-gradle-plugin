@@ -3,19 +3,19 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:+")
+        classpath("com.github.nbyl.gradle:gradle-compound-plugin:+")
     }
 }
 
-apply plugin: 'com.github.nbyl.docker-compose'
+apply plugin: 'com.github.nbyl.compound'
 
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+import com.github.nbyl.gradle.compound.tasks.compose.Down
+import com.github.nbyl.gradle.compound.tasks.compose.Up
 
-task start(type: DockerComposeUp) {
+task start(type: Up) {
     dockerMachineEnvironment 'dev'
 }
 
-task stop(type: DockerComposeDown) {
+task stop(type: Down) {
     dockerMachineEnvironment 'dev'
 }

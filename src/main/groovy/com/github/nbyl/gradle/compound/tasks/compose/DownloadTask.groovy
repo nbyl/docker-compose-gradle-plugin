@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks.compose
 
 import groovy.util.logging.Slf4j
 import org.gradle.api.internal.AbstractTask
@@ -8,11 +8,11 @@ import java.nio.file.Files
 import java.nio.file.attribute.PosixFilePermission
 
 @Slf4j
-public class DockerComposeDownloadTask extends AbstractTask {
+public class DownloadTask extends AbstractTask {
 
     public final static String NAME = 'dockerComposeDownload'
 
-    public DockerComposeDownloadTask() {
+    public DownloadTask() {
         this.project.afterEvaluate {
             getOutputs().file(target())
         }

@@ -19,7 +19,7 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = 'docker-compose-gradle-plugin'
+        name = 'gradle-compound-plugin'
         websiteUrl = "https://github.com/nbyl/${project.name}"
         issueTrackerUrl = "https://github.com/nbyl/${project.name}/issues"
         vcsUrl = "https://github.com/nbyl/${project.name}.git"

@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.samples;
+package com.github.nbyl.gradle.compound.samples;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

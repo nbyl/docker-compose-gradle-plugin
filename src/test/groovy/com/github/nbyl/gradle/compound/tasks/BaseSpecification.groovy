@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks
 
 import org.gradle.testfixtures.ProjectBuilder
 import spock.lang.Specification
@@ -8,6 +8,6 @@ abstract class BaseSpecification extends Specification {
 
     def setup() {
         project = ProjectBuilder.builder().build();
-        project.pluginManager.apply('com.github.nbyl.docker-compose')
+        project.pluginManager.apply('com.github.nbyl.compound')
     }
 }

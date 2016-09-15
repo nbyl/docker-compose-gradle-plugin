@@ -1,22 +1,22 @@
-package com.github.nbyl.gradle.dockercompose
+package com.github.nbyl.gradle.compound
 
 import org.gradle.api.Project
 
-class DockerComposeExtension {
+class CompoundExtension {
 
-    static final EXTENSION_NAME = 'dockerCompose'
+    static final EXTENSION_NAME = 'compound'
 
     def boolean download = false
 
     def String binary = 'docker-compose'
 
-    DockerComposeExtension(Project project) {
+    CompoundExtension(Project project) {
         if (download) {
             binary = new File(this.project.buildDir, 'dockerCompose' + File.separator + 'docker-compose').absolutePath
         }
     }
 
-    static DockerComposeExtension get(Project project) {
+    static CompoundExtension get(Project project) {
         project.extensions.getByName(EXTENSION_NAME)
     }
 }
