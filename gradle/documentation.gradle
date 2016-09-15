@@ -1,4 +1,7 @@
+def token = System.getenv('GH_TOKEN')
+
 githubPages {
+    repoUri = "https://${token}@github.com/nbyl/gradle-compound-plugin.git"
     pages {
         from "${project.rootDir}/docs"
         into '_guides'
