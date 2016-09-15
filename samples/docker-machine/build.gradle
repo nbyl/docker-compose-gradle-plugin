@@ -9,13 +9,13 @@ buildscript {
 
 apply plugin: 'com.github.nbyl.compound'
 
-import com.github.nbyl.gradle.compound.tasks.DockerComposeDown
-import com.github.nbyl.gradle.compound.tasks.DockerComposeUp
+import com.github.nbyl.gradle.compound.tasks.compose.Down
+import com.github.nbyl.gradle.compound.tasks.compose.Up
 
-task start(type: DockerComposeUp) {
+task start(type: Up) {
     dockerMachineEnvironment 'dev'
 }
 
-task stop(type: DockerComposeDown) {
+task stop(type: Down) {
     dockerMachineEnvironment 'dev'
 }
