@@ -38,5 +38,5 @@ publishing {
 }
 
 task deploy() {
-    dependsOn bintrayUpload //, publishGhPages
+    dependsOn bintrayUpload, publishGhPages
 }
