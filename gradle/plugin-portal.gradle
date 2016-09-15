@@ -1,21 +1,12 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
+pluginBundle {
+    website = 'http://blog.nicolas-byl.eu/gradle-compound-plugin/'
+    vcsUrl = 'https://github.com/nbyl/gradle-compound-plugin.git'
+    tags = ['docker', 'docker-compose']
+
+    plugins {
+        compoundPlugin {
+            id = 'com.github.nbyl.compound'
+            displayName = 'Gradle Compound Plugin'
         }
     }
-    dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.5"
-    }
 }
-
-apply plugin: "com.gradle.plugin-publish"
-
-plugins {
-
-    dockerComposePlugin {
-        id = 'com.github.nbyl.docker-compose'
-        displayName = 'Gradle Greeting plugin'
-        tags = ['individual', 'tags', 'per', 'plugin']
-        version = '1.2'
-    }
