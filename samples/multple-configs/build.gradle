@@ -3,7 +3,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:+")
+        classpath("com.github.nbyl.gradle:gradle-compound-plugin:+")
     }
 }
 

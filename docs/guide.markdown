@@ -1,11 +1,11 @@
 ---
 version: ${version}
 layout: guide
-title: docker-compose-gradle-plugin - User Guide - Version ${version}
+title: gradle-compound-plugin - User Guide - Version ${version}
 ---
 ## Introduction
 
-This is a plugin for the popular [Gradle](https://gradle.org/) build tool. It enables you to integrate the orchestration management tool [docker-compose](https://docs.docker.com/compose/) into your build.gradle. Unlike other docker plugins, docker-compose-gradle-plugin has some unique features:
+This is a plugin for the popular [Gradle](https://gradle.org/) build tool. It enables you to integrate the orchestration management tool [docker-compose](https://docs.docker.com/compose/) into your build.gradle. Unlike other docker plugins, gradle-compound-plugin has some unique features:
 
 * Rich domain language to integration docker-compose into your build
 * Select docker environment using [docker-machine](https://docs.docker.com/machine)
@@ -26,7 +26,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.github.nbyl.gradle:docker-compose-gradle-plugin:${version}")
+        classpath("com.github.nbyl.gradle:gradle-compound-plugin:${version}")
     }
 }
 
@@ -88,14 +88,14 @@ The plugin will read the settings from the docker-machine configuration `dev` fi
 
 ## Development
 
-The code of the docker-compose-gradle-plugin is avaible at [GitHub](https://github.com/nbyl/docker-compose-gradle-plugin). The current state of the master branch can be visited at [Travis CI](https://travis-ci.org/nbyl/docker-compose-gradle-plugin).
+The code of the gradle-compound-plugin is avaible at [GitHub](https://github.com/nbyl/gradle-compound-plugin). The current state of the master branch can be visited at [Travis CI](https://travis-ci.org/nbyl/gradle-compound-plugin).
 
-If you see any errors feel free to provide a patch. To do so, simply open a pull request at https://github.com/nbyl/docker-compose-gradle-plugin/pulls. Afterwards Travis will build the code and if the build succeeds your pull request will be merged by the development team.
+If you see any errors feel free to provide a patch. To do so, simply open a pull request at https://github.com/nbyl/gradle-compound-plugin/pulls. Afterwards Travis will build the code and if the build succeeds your pull request will be merged by the development team.
 
 To create a release the following procedurs needs to be executed:
 
 * Create a Tag and push it to github: `git tag '<version>' && git push --tags`
-* Travis will build the release and deploy the artifacts to [bintray](https://bintray.com/nbyl/maven/docker-compose-gradle-plugin)
+* Travis will build the release and deploy the artifacts to [bintray](https://bintray.com/nbyl/maven/gradle-compound-plugin)
 
 ## License
 
