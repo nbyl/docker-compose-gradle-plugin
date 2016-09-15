@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.samples;
+package com.github.nbyl.gradle.compound.samples;
 
 import javax.persistence.*;
 

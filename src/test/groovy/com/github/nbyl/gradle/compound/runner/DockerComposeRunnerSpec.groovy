@@ -1,6 +1,6 @@
-package com.github.nbyl.gradle.dockercompose.runner
+package com.github.nbyl.gradle.compound.runner
 
-import com.github.nbyl.gradle.dockercompose.DockerComposeExtension
+import com.github.nbyl.gradle.compound.DockerComposeExtension
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.process.ExecSpec

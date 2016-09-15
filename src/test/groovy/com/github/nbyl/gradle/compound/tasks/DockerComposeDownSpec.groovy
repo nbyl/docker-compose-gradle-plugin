@@ -1,6 +1,6 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks
 
-import com.github.nbyl.gradle.dockercompose.runner.DockerComposeRunner
+import com.github.nbyl.gradle.compound.runner.DockerComposeRunner
 
 class DockerComposeDownSpec extends BaseSpecification {
 

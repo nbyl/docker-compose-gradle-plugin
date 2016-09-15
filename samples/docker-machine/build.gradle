@@ -7,10 +7,10 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.nbyl.docker-compose'
+apply plugin: 'com.github.nbyl.compound'
 
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+import com.github.nbyl.gradle.compound.tasks.DockerComposeDown
+import com.github.nbyl.gradle.compound.tasks.DockerComposeUp
 
 task start(type: DockerComposeUp) {
     dockerMachineEnvironment 'dev'

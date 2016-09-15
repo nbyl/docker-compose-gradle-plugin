@@ -1,6 +1,6 @@
-package com.github.nbyl.gradle.dockercompose
+package com.github.nbyl.gradle.compound
 
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDownloadTask
+import com.github.nbyl.gradle.compound.tasks.DockerComposeDownloadTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.machine
+package com.github.nbyl.gradle.compound.machine
 
 import groovy.util.logging.Slf4j
 import org.gradle.api.Project

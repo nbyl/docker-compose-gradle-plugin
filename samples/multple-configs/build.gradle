@@ -7,9 +7,9 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.nbyl.docker-compose'
+apply plugin: 'com.github.nbyl.compound'
 
-import com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+import com.github.nbyl.gradle.compound.tasks.DockerComposeUp
 
 task startRedis(type: DockerComposeUp) {
     composeFile "${rootDir}/redis.yml"

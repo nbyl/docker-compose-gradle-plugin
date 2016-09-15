@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose.tasks
+package com.github.nbyl.gradle.compound.tasks
 
 import groovy.util.logging.Slf4j
 import org.gradle.api.internal.AbstractTask

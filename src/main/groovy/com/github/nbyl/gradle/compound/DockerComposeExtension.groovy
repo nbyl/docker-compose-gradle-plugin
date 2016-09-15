@@ -1,4 +1,4 @@
-package com.github.nbyl.gradle.dockercompose
+package com.github.nbyl.gradle.compound
 
 import org.gradle.api.Project
 
