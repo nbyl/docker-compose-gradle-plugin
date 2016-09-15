@@ -1,0 +1,12 @@
+pluginBundle {
+    website = 'http://blog.nicolas-byl.eu/gradle-compound-plugin/'
+    vcsUrl = 'https://github.com/nbyl/gradle-compound-plugin.git'
+    tags = ['docker', 'docker-compose']
+
+    plugins {
+        compoundPlugin {
+            id = 'com.github.nbyl.compound'
+            displayName = 'Gradle Compound Plugin'
+        }
+    }
+}
