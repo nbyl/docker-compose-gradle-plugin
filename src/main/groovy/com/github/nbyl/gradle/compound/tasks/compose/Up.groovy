@@ -1,8 +1,8 @@
-package com.github.nbyl.gradle.compound.tasks
+package com.github.nbyl.gradle.compound.tasks.compose
 
 import org.gradle.api.tasks.TaskAction
 
-class DockerComposeUp extends DockerComposeBaseTask {
+class Up extends BaseTask {
 
     def boolean detachMode = true
 

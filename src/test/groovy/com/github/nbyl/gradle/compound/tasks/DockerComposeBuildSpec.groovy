@@ -2,12 +2,13 @@ package com.github.nbyl.gradle.compound.tasks
 
 import com.github.nbyl.gradle.compound.machine.DockerMachineEnvironmentReader
 import com.github.nbyl.gradle.compound.runner.DockerComposeRunner
+import com.github.nbyl.gradle.compound.tasks.compose.Build
 
 class DockerComposeBuildSpec extends BaseSpecification {
 
     def "class DockerComposeRunner with build command"() {
         given:
-        def task = project.task(type: DockerComposeBuild, "buildImages", {
+        def task = project.task(type: Build, "buildImages", {
         })
         def runner = Mock(DockerComposeRunner)
 
@@ -16,7 +17,7 @@ class DockerComposeBuildSpec extends BaseSpecification {
         task.run()
 
         then:
-        task instanceof DockerComposeBuild
+        task instanceof Build
         1 * runner.withProject(_) >> runner
         1 * runner.withCommand('build') >> runner
         1 * runner.run()
@@ -24,7 +25,7 @@ class DockerComposeBuildSpec extends BaseSpecification {
 
     def "setting compose file will pass it to the runner"() {
         given:
-        def task = project.task(type: DockerComposeBuild, "buildImages", {
+        def task = project.task(type: Build, "buildImages", {
             composeFile 'redis.yml'
         })
         def runner = Mock(DockerComposeRunner)
@@ -34,7 +35,7 @@ class DockerComposeBuildSpec extends BaseSpecification {
         task.run()
 
         then:
-        task instanceof DockerComposeBuild
+        task instanceof Build
         1 * runner.withProject(_) >> runner
         1 * runner.withComposeFile('redis.yml') >> runner
         1 * runner.withCommand('build') >> runner
@@ -43,7 +44,7 @@ class DockerComposeBuildSpec extends BaseSpecification {
 
     def "setting dockerMachineEnvironment will pass it to the runner"() {
         given:
-        def task = project.task(type: DockerComposeBuild, "buildImages", {
+        def task = project.task(type: Build, "buildImages", {
             dockerMachineEnvironment 'dev'
         })
         def runner = Mock(DockerComposeRunner)
@@ -55,7 +56,7 @@ class DockerComposeBuildSpec extends BaseSpecification {
         task.run()
 
         then:
-        task instanceof DockerComposeBuild
+        task instanceof Build
 
         1 * environmentReader.readEnvironment('dev') >> ['DOCKER_HOST': 'tcp://192.168.99.100:2376']
 

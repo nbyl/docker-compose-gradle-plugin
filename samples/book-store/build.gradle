@@ -41,17 +41,17 @@ compound {
     download = true
 }
 
-import com.github.nbyl.gradle.compound.tasks.DockerComposeBuild
-import com.github.nbyl.gradle.compound.tasks.DockerComposeDown
-import com.github.nbyl.gradle.compound.tasks.DockerComposeUp
+import com.github.nbyl.gradle.compound.tasks.compose.Build
+import com.github.nbyl.gradle.compound.tasks.compose.Down
+import com.github.nbyl.gradle.compound.tasks.compose.Up
 
-task buildImages(type: DockerComposeBuild) {
+task buildImages(type: Build) {
 }
 
-task run(type: DockerComposeUp) {
+task run(type: Up) {
     dependsOn buildImages
 }
 
-task stop(type: DockerComposeDown) {
+task stop(type: Down) {
 
 }
