@@ -8,6 +8,6 @@ abstract class BaseSpecification extends Specification {
 
     def setup() {
         project = ProjectBuilder.builder().build();
-        project.pluginManager.apply('com.github.nbyl.docker-compose')
+        project.pluginManager.apply('com.github.nbyl.compound')
     }
 }

@@ -1,6 +1,6 @@
 package com.github.nbyl.gradle.compound.runner
 
-import com.github.nbyl.gradle.compound.DockerComposeExtension
+import com.github.nbyl.gradle.compound.CompoundExtension
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.process.ExecSpec
@@ -12,7 +12,7 @@ public class DockerComposeRunnerSpec extends Specification {
         given:
         def project = Mock(Project)
         def extensionContainer = Mock(ExtensionContainer)
-        def extension = Mock(DockerComposeExtension)
+        def extension = Mock(CompoundExtension)
         def execCall = Mock(ExecSpec)
 
         when:
@@ -23,7 +23,7 @@ public class DockerComposeRunnerSpec extends Specification {
 
         then:
         1 * project.extensions >> extensionContainer
-        1 * extensionContainer.getByName('dockerCompose') >> extension
+        1 * extensionContainer.getByName(CompoundExtension.EXTENSION_NAME) >> extension
         1 * extension.binary >> 'docker-compose'
         1 * project.exec(_) >> { Closure closure ->
             closure.delegate = execCall
@@ -37,7 +37,7 @@ public class DockerComposeRunnerSpec extends Specification {
         given:
         def project = Mock(Project)
         def extensionContainer = Mock(ExtensionContainer)
-        def extension = Mock(DockerComposeExtension)
+        def extension = Mock(CompoundExtension)
         def execCall = Mock(ExecSpec)
 
         when:
@@ -49,7 +49,7 @@ public class DockerComposeRunnerSpec extends Specification {
 
         then:
         1 * project.extensions >> extensionContainer
-        1 * extensionContainer.getByName('dockerCompose') >> extension
+        1 * extensionContainer.getByName(CompoundExtension.EXTENSION_NAME) >> extension
         1 * extension.binary >> 'docker-compose'
         1 * project.exec(_) >> { Closure closure ->
             closure.delegate = execCall
@@ -63,7 +63,7 @@ public class DockerComposeRunnerSpec extends Specification {
         given:
         def project = Mock(Project)
         def extensionContainer = Mock(ExtensionContainer)
-        def extension = Mock(DockerComposeExtension)
+        def extension = Mock(CompoundExtension)
         def execCall = Mock(ExecSpec)
 
         when:
@@ -75,7 +75,7 @@ public class DockerComposeRunnerSpec extends Specification {
 
         then:
         1 * project.extensions >> extensionContainer
-        1 * extensionContainer.getByName('dockerCompose') >> extension
+        1 * extensionContainer.getByName(CompoundExtension.EXTENSION_NAME) >> extension
         1 * extension.binary >> 'docker-compose'
         1 * project.exec(_) >> { Closure closure ->
             closure.delegate = execCall
@@ -89,7 +89,7 @@ public class DockerComposeRunnerSpec extends Specification {
         given:
         def project = Mock(Project)
         def extensionContainer = Mock(ExtensionContainer)
-        def extension = Mock(DockerComposeExtension)
+        def extension = Mock(CompoundExtension)
         def execCall = Mock(ExecSpec)
 
         when:
@@ -100,7 +100,7 @@ public class DockerComposeRunnerSpec extends Specification {
 
         then:
         1 * project.extensions >> extensionContainer
-        1 * extensionContainer.getByName('dockerCompose') >> extension
+        1 * extensionContainer.getByName(CompoundExtension.EXTENSION_NAME) >> extension
         1 * extension.binary >> new File('.', 'dockerCompose' + File.separator + 'docker-compose').absolutePath
         1 * project.exec(_) >> { Closure closure ->
             closure.delegate = execCall
