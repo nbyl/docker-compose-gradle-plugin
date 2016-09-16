@@ -30,7 +30,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.nbyl.docker-compose'
+apply plugin: 'com.github.nbyl.compound'
 ```
 Afterwards you can use the provided [tasks](#tasks) to activate `docker-compose`.
 
@@ -47,7 +47,7 @@ dockerCompose {
 
 ### <a name="tasks"></a>Tasks
 
-#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeBuild
+#### com.github.nbyl.gradle.compound.tasks.compose.Build
 
 This task calls the <a href="https://docs.docker.com/compose/reference/build/">build command</a> to build all missing containers.
 
@@ -56,7 +56,7 @@ This task calls the <a href="https://docs.docker.com/compose/reference/build/">b
 | `composeFile` | | The location of the docker-compose file to use. If not set, it will use the default of docker-compose (`docker-compose.yml`). |
 | `dockerMachineEnvironment` | | The docker-machine environment to select. See [Docker Machine Support](#docker-machine-support) for furhter details.|
 
-#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeDown
+#### com.github.nbyl.gradle.compound.tasks.compose.Down
 
 This task calls the <a href="https://docs.docker.com/compose/reference/down/">build command</a> to remove all containers and networks.
 
@@ -65,7 +65,7 @@ This task calls the <a href="https://docs.docker.com/compose/reference/down/">bu
 | `composeFile` | | The location of the docker-compose file to use. If not set, it will use the default of docker-compose (`docker-compose.yml`). |
 | `dockerMachineEnvironment` | | The docker-machine environment to select. See [Docker Machine Support](#docker-machine-support) for furhter details.|
 
-#### com.github.nbyl.gradle.dockercompose.tasks.DockerComposeUp
+#### com.github.nbyl.gradle.compound.tasks.compose.Up
 
 This task calls the <a href="https://docs.docker.com/compose/reference/up/">up command</a> to start all containers and networks.
 
