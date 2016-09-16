@@ -1,6 +1,7 @@
 pluginBundle {
     website = 'http://blog.nicolas-byl.eu/gradle-compound-plugin/'
     vcsUrl = 'https://github.com/nbyl/gradle-compound-plugin.git'
+    description = 'A gradle plugin to download and control docker-compose from your gradle build.'
     tags = ['docker', 'docker-compose']
 
     plugins {
