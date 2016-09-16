@@ -18,6 +18,14 @@ This is a plugin for the popular [Gradle](https://gradle.org/) build tool. It en
 To activate the plugin, insert the following code into your `build.gradle`:
 
 ```
+plugins {
+  id "com.github.nbyl.compound" version "${version}"
+}
+```
+
+Otherwise you can include plugin also tradionally:
+
+```
 buildscript {
     repositories {
         maven {
